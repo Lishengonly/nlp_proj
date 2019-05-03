@@ -9,7 +9,7 @@ import tensorflow as tf
 import utils
 
 tf.app.flags.DEFINE_string(
-    'data_dir', 'reproduce',
+    'test_dir', 'test1',
     'Path to directory containing data and model checkpoints.')
 
 
@@ -172,7 +172,7 @@ def main(_):
   #evaluate_ensemble('wsc273', 10)  # 61.5%
   #evaluate_ensemble('wsc273', 14)  # 63.7%
 
-  ensemble = EnsembleLM('test2')
+  ensemble = EnsembleLM(FLAGS.test_dir)
   model_list = ['lm{:02d}'.format(14)]
   for model_name in model_list:
       ensemble.add_single_model(model_name)
